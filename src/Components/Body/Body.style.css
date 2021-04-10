@@ -1,0 +1,10 @@
+label{
+    margin: inherit;
+}
+
+/* style="margin: inherit 0 inherit inherit inherit;width: 1200px;height: 40px;" */
+input{
+    margin: inherit 0 inherit inherit inherit;
+    width: 1200px;
+    height: 40px;
+}
