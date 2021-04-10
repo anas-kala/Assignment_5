@@ -2,15 +2,22 @@ import React from 'react';
 import Body from '../Body/Body';
 import Button from '../Button/Button';
 import Subject from '../Subject/Subject';
-import './Form.style.css';
+// import './Form.style.css';
+import styled from 'styled-components';
+
+const Wrapper=styled.form`
+    height: 100px;
+    vertical-align: middle;
+    margin: 10px;
+`;
 
 const Form = () => {
     return (
-        <div>
+        <Wrapper>
             <Subject number={4}></Subject>
             <Body></Body>
-            <Button buttonName="submit"></Button>
-        </div>
+            <Button type="submit" buttonName="submit"></Button>
+        </Wrapper>
     );
 }
 

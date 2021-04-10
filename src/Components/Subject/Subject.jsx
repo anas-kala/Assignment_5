@@ -20,7 +20,7 @@ const Wrapper = styled.section`
 const Subject = () => {
     return (
         <Wrapper>
-            <Label>Subject</Label>
+            <Label>Subject of the message</Label>
             <Input type="text" name="subject" />
         </Wrapper>
     );
