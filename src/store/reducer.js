@@ -16,15 +16,12 @@ const initState = {
 }
 
 const reducer = (state = initState, action) => {
-    if (action.type === 'NEWMESSAGE') {
-        return {
-            // messages: [...state.messages,m1,m1],
-
-            // ...state, //copying the original state
-            // todos: [...state.messages, action.payload] //new todos array 
+    switch(action.type){
+        case 'NEWMESSAGE': return{
+            ...state,
             counter: state.counter + 1
         }
+        default: return state;
     }
-    return state;
 };
 export default reducer;

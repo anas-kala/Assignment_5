@@ -9,6 +9,12 @@ function App() {
     <div className="App">
       <Header></Header>
       <Form></Form>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <MessageViewer />
     </div>
   );
