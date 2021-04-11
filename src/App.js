@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Header></Header>
       <Form></Form>
-      <MessageViewer/>
+      <MessageViewer />
     </div>
   );
 }
