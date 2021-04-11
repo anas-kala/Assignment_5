@@ -16,10 +16,14 @@ const initState = {
 }
 
 const reducer = (state = initState, action) => {
-    switch(action.type){
-        case 'NEWMESSAGE': return{
+    switch (action.type) {
+        case 'NEWMESSAGE': return {
             ...state,
             counter: state.counter + 1
+        }
+        case 'SUBMITFORM': return {
+            ...state,
+            messages: [...state.messages,new Message(action.sub, action.bod)]
         }
         default: return state;
     }
