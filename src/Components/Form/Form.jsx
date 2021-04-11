@@ -13,7 +13,7 @@ const Wrapper=styled.form`
 const Form = () => {
     return (
         <Wrapper>
-            <Subject number={4}></Subject>
+            <Subject></Subject>
             <Body></Body>
             <Button type="submit" buttonName="submit" ></Button>
         </Wrapper>
