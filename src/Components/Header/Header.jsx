@@ -11,7 +11,6 @@ background-color: cadetblue;
 `;
 
 const LI = styled.li`
-    float: right:
     display: block;
     color: white;
     text-align: center;
@@ -31,23 +30,25 @@ text-decoration: none;
 
 const Wrapper = styled.a`
   &:hover ${LA} {
-    background-color: black;
+    background-color: blue;
   },
  `;
 
 
 const Header = (props) => {
     return (
-        <Wrapper>
             <UL>
+                <Wrapper>
                 <LI>
                     <LA href="#news">Add new message</LA>
                 </LI>
+                </Wrapper>
+                <Wrapper>
                 <LI>
                     <LA class="active" href="#home">Message ({props.number} new)</LA>
                 </LI>
+                </Wrapper>
             </UL>
-        </Wrapper>
     );
 }
 
