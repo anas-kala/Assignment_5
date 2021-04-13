@@ -40,7 +40,7 @@ const Header = () => {
     const dispatch=useDispatch();
     const unreadMsgs=useSelector(state=>{
         return state.messages.filter(function(element){
-            return element.readMsg == false;
+            return element.readMsg === false;
         }).length
     });
     return (

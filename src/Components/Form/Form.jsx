@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import Body from '../Body/Body';
-// import Button from '../Button/Button';
-// import Subject from '../Subject/Subject';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -21,6 +18,28 @@ const Input = styled.input`
     height: 20px;
 `;
 
+const P=styled.p`
+    color: #7c795d; 
+    font-family: 'Trocchi', serif; 
+    font-size: 45px; 
+    font-weight: normal; 
+    line-height: 48px; 
+    margin: 0; 
+`;
+
+const But=styled.button`
+letter-spacing: 0.1em;
+cursor: pointer;
+font-size: 14px;
+font-weight: 400;
+line-height: 45px;
+max-width: 160px;
+position: relative;
+text-decoration: none;
+text-transform: uppercase;
+width: 100%;
+margin-top: 12px;
+`;
 // const Wrapper = styled.section`
 //     padding: 4px;
 //     vertical-align: ;
@@ -30,16 +49,18 @@ const Form = () => {
     const [subject, setSubject] = useState('');
     const [body, setBody] = useState('');
     const dispatch = useDispatch();
-
-    function handleSubmit(e) {
-        e.preventDefault();
-        setSubject("");
-        setBody("");
-    }
-
-    const selector = useSelector(state => {
-        return state.messages.length;
+    const unreadMsgs=useSelector(state=>{
+        return state.messages.filter(function(element){
+            return element.readMsg === false;
+        }).length
     });
+
+    // function handleSubmit(e) {
+    //     e.preventDefault();
+    //     setSubject("");
+    //     setBody("");
+    // }
+
     return (
         <>
             <Wrapper onSubmit={e => e.preventDefault()}>
@@ -50,15 +71,18 @@ const Form = () => {
                 <Label for="msgBody">Body of the message</Label>
                 <Input type="text" name="msgBody" id="msgBody" value={body} onChange={event => setBody(event.target.value)} />
                 <br></br>
-                <button type="submit" onClick={
+                <But type="submit" onClick={
                     () => {
                         dispatch({ type: 'SUBMITFORM', sub: subject, bod: body })
                     }
                 }
-                onSubmit={handleSubmit}
-                >Submit</button>
+                // onClickCapture={event => handleSubmit}
+                >Submit</But>
             </Wrapper>
-            <p>number of elements in the array is {selector}</p>
+            <br></br>
+            <br></br>
+            <br></br>
+            <P>number of unread messages {unreadMsgs}</P>
         </>
     );
 }

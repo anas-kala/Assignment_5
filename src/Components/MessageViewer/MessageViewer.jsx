@@ -7,7 +7,7 @@ import styled from 'styled-components';
 // `;
 const Wrapper=styled.div`
     background-color: ${({color})=>(
-        color==true? 'orange': 'blue'
+        color===true? 'orange': 'blue'
     )};
 `;
 
@@ -33,8 +33,7 @@ const MessageVeiwer = () => {
                         <Wrapper onClick={() => dispatch({ type: 'SETMESSAGEREAD',ind: index})} color={item.readMsg}>
                             <H1>{item.msgSubject}</H1>
                             <P>{item.msgBody}</P>
-                            <P>index: {index}</P>
-                            <P>message read: {item.readMsg==true?'already read':'not yet read'}</P>
+                            <P>message read: {item.readMsg===true?'already read':'not yet read'}</P>
                         </Wrapper>
                     </li>
                 })}
