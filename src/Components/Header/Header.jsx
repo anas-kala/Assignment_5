@@ -1,6 +1,7 @@
 import React from 'react';
 // import './Header.style.css';
 import styled from 'styled-components';
+import {useDispatch, useSelector} from 'react-redux';
 
 const UL = styled.ul`
 list-style-type: none;
@@ -36,16 +37,20 @@ const Wrapper = styled.a`
 
 
 const Header = (props) => {
+    const dispatch=useDispatch();
+    const unreadMsgs=useSelector(state=>{
+        return state.messages.length
+    });
     return (
             <UL>
                 <Wrapper>
-                <LI>
+                <LI onClick={() => dispatch({ type: 'SHOWFORM'})}>
                     <LA href="#news">Add new message</LA>
                 </LI>
                 </Wrapper>
                 <Wrapper>
-                <LI>
-                    <LA class="active" href="#home">Message ({props.number} new)</LA>
+                <LI onClick={()=> dispatch({type:'SHOWMESSAGES'})}>
+                    <LA class="active" href="#home">Message ({unreadMsgs} new)</LA>
                 </LI>
                 </Wrapper>
             </UL>

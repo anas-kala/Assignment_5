@@ -30,20 +30,33 @@ const Form = () => {
     const [subject, setSubject] = useState('');
     const [body, setBody] = useState('');
     const dispatch = useDispatch();
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        setSubject("");
+        setBody("");
+    }
+
     const selector = useSelector(state => {
         return state.messages.length;
     });
     return (
         <>
-            <Wrapper onSubmit={e=> e.preventDefault()}>
-                
+            <Wrapper onSubmit={e => e.preventDefault()}>
+
                 <Label for="msgSubject">Subject of the message</Label>
                 <Input type="text" name="msgSubject" id="msgSubject" value={subject} onChange={event => setSubject(event.target.value)} />
                 <br></br>
                 <Label for="msgBody">Body of the message</Label>
                 <Input type="text" name="msgBody" id="msgBody" value={body} onChange={event => setBody(event.target.value)} />
                 <br></br>
-                <button onClick={() => dispatch({ type: 'SUBMITFORM', sub: subject, bod: body })}>Submit</button>
+                <button type="submit" onClick={
+                    () => {
+                        dispatch({ type: 'SUBMITFORM', sub: subject, bod: body })
+                    }
+                }
+                onSubmit={handleSubmit}
+                >Submit</button>
             </Wrapper>
             <p>number of elements in the array is {selector}</p>
         </>

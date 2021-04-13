@@ -12,14 +12,16 @@ let m2 = new Message("C", "D");
 
 const initState = {
     messages: [m0, m1, m2],
-    counter: 0
+    counter: 3,
+    displayForm: true,
+    displayMessages:false
 }
 
 const reducer = (state = initState, action) => {
     switch (action.type) {
         case 'NEWMESSAGE': return {
             ...state,
-            counter: state.counter + 1
+            counter: state.messages.length,
         }
         case 'SUBMITFORM': return {
             ...state,
@@ -30,6 +32,16 @@ const reducer = (state = initState, action) => {
             messages: state.messages.map(
                 (content, i) => i === action.ind ? {...content, readMsg: true}
                                         : content)
+        }
+        case 'SHOWFORM': return {
+            ...state,
+            displayForm: state.displayForm=true,
+            displayMessages: state.displayMessages=false
+        }
+        case 'SHOWMESSAGES': return{
+            ...state,
+            displayForm: state.displayForm=false,
+            displayMessages: state.displayMessages=true
         }
         default: return state;
     }
