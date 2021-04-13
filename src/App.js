@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 
 
 function App() {
-  const[displayForm,setDisplayForm]=useState(true);
   const displayFormFromState=useSelector(state=>{return state.displayForm})
   const displayMessagesFromState=useSelector(state=>{return state.displayMessages})
   return (
