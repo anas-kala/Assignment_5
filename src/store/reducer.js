@@ -10,9 +10,18 @@ let m0 = new Message("A", "B");
 let m1 = new Message("C", "D");
 let m2 = new Message("C", "D");
 
+function numberOfUnreadMessages(...args){
+    let count=0;
+    for(var i=0;i<args.length;i++){
+        if(args[i].readMsg==false)
+        count++;
+    }
+    return count;
+}
+
 const initState = {
     messages: [m0, m1, m2],
-    counter: 3,
+    // counter: numberOfUnreadMessages(this.messages),
     displayForm: true,
     displayMessages:false
 }

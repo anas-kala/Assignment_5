@@ -36,10 +36,12 @@ const Wrapper = styled.a`
  `;
 
 
-const Header = (props) => {
+const Header = () => {
     const dispatch=useDispatch();
     const unreadMsgs=useSelector(state=>{
-        return state.messages.length
+        return state.messages.filter(function(element){
+            return element.readMsg == false;
+        }).length
     });
     return (
             <UL>
