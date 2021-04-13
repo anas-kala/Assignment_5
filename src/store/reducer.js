@@ -25,6 +25,12 @@ const reducer = (state = initState, action) => {
             ...state,
             messages: [...state.messages,new Message(action.sub, action.bod)]
         }
+        case 'SETMESSAGEREAD': return{
+            ...state, 
+            messages: state.messages.map(
+                (content, i) => i === action.ind ? {...content, readMsg: true}
+                                        : content)
+        }
         default: return state;
     }
 };
